@@ -1,13 +1,15 @@
 package ulohy.bookcaseobjektovo;
 
 
-import ulohy.bookcaseobjektovo.model.KnihaObject;
-import ulohy.bookcaseobjektovo.model.ZoznamObjekt;
+import ulohy.bookcaseobjektovo.model.*;
+//import ulohy.bookcaseobjektovo.model.ZoznamObjekt;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import static ulohy.bookcase.KniznicaEvidencia.*;
+
+import static ulohy.bookcaseobjektovo.KniznicaEvidenciaObjekt.vypisKnihyObjekt;
 
 
 public class KniznicaMenuObjekt {
@@ -64,6 +66,10 @@ public class KniznicaMenuObjekt {
 
             case "2":
 //              vypisDynamickePole(zoznamknih);
+                vypisKnihyObjekt(kniznica);
+
+
+                System.out.println("a znova vypis priamo");
                 System.out.println();
                 for (KnihaObject vystup:kniznica) {
                     System.out.println("Nazov knihy: " + vystup.getMeno());

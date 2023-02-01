@@ -1,6 +1,6 @@
 package ulohy.bookcaseobjektovo;
-import ulohy.bookcaseobjektovo.model.KnihaObject;
 
+import ulohy.bookcaseobjektovo.model.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -63,20 +63,23 @@ public static List<String> findUsingLoop(String search, List<String> list) {
 
 public class KniznicaEvidenciaObjekt {
 
-    public static void vypisKnihyObjekt(ArrayList<KnihaObject>zoznamknih) {
+    public static void vypisKnihyObjekt(ArrayList<KnihaObject>kniznica) {
 
-        System.out.print("Zoznam knih : " + "{");
-        for (int i = 0; i < zoznamknih.size(); i++) {
-            System.out.print(zoznamknih.get(i) + ",");
-        }
-        System.out.print("}");
         System.out.println();
+        for (KnihaObject vystup:kniznica) {
+            System.out.println("Nazov knihy: " + vystup.getMeno());
+            System.out.println("Meno autora: " + vystup.getAutor());
+            System.out.println("Rok vydania: " + vystup.getRokvydania());
+            System.out.println("Rok vydania: " + vystup.getCena());
+            System.out.println("------------------------------------------");
+        }
 
+        /*
         // prechadzame vsetkymi prvkami dynamickeho pola knihy, SPOSOB c.2
         for (KnihaObject kniha : zoznamknih) {
             System.out.println(kniha);
         }
-
+*/
     }
     public static void vypisKnihuObjektDetail(ArrayList<String>Knihaobjekt) {
 
