@@ -15,9 +15,8 @@ public class KniznicaMenuObjekt {
     public static void main(String[] args) {
 
         KnihaObject kniha=new KnihaObject();
-
-        ZoznamObjekt testovacizoznam=new ZoznamObjekt();
-        ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<KnihaObject>();
+        ZoznamObjekt zoznamObjekt=new ZoznamObjekt();
+        ArrayList<KnihaObject> kniznica= zoznamObjekt.naplnKniznicu();
 
 
 
@@ -55,7 +54,7 @@ public class KniznicaMenuObjekt {
                         System.out.println("Zadaj cenu");
                         vstup = sc1.nextLine();
                         kniha.setCena(Integer.parseInt(vstup));
-                        zoznamknihobjekt.add(kniha);
+                        kniznica.add(kniha);
                         System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
 
                     }
@@ -65,6 +64,16 @@ public class KniznicaMenuObjekt {
 
             case "2":
 //              vypisDynamickePole(zoznamknih);
+                System.out.println();
+                for (KnihaObject vystup:kniznica) {
+                    System.out.println("Nazov knihy: " + vystup.getMeno());
+                    System.out.println("Meno autora: " + vystup.getAutor());
+                    System.out.println("Rok vydania: " + vystup.getRokvydania());
+                    System.out.println("Rok vydania: " + vystup.getCena());
+                    System.out.println("------------------------------------------");
+                }
+
+
 
                 System.out.println("Zadaj svoju volbu:");
 

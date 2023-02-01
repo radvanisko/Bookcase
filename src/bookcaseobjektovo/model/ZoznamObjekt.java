@@ -22,10 +22,10 @@ public class ZoznamObjekt {
         kniha1.setCena(50);
 
         KnihaObject kniha2= new KnihaObject();
-        kniha1.setMeno("Testovacia 1");
-        kniha1.setAutor("Autor1");
-        kniha1.setRokvydania(2000);
-        kniha1.setCena(50);
+        kniha2.setMeno("Testovacia 2");
+        kniha2.setAutor("Autor1");
+        kniha2.setRokvydania(2000);
+        kniha2.setCena(50);
 
         ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<>();
         zoznamknihobjekt.add(kniha1);
@@ -35,5 +35,7 @@ public class ZoznamObjekt {
 
     }
 
-
+    public ZoznamObjekt() {
+        this.zoznamknihobjekt = zoznamknihobjekt;
+    }
 }
