@@ -21,13 +21,6 @@ public class HlavneOkno {
     private JPanel panel3;
      public KnihaObject kniha;
 
-    public KnihaObject getKniha() {
-        return kniha;
-    }
-
-    public void setKniha(KnihaObject kniha) {
-        this.kniha = kniha;
-    }
 
     public HlavneOkno() {
 
@@ -52,16 +45,20 @@ public class HlavneOkno {
 
 
          // generovanie dummy riadkov
-        for (int i = 1; i <40; i++) {
+        /*for (int i = 1; i <40; i++) {
             daDefaultTableModel.addRow(new Object[] {"Nazov"+(i),"Autor",1980+i,100-2*i});
-        }
+        }*/
 //        table1.updateUI();
 
 
         nováKnihaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ZadacieOkno.main(null);
+                ZadacieOkno zadacieOkno = new ZadacieOkno(HlavneOkno.this);
+                zadacieOkno.setLocationRelativeTo(null); // vycentrovanie okna
+                zadacieOkno.pack();
+                zadacieOkno.setVisible(true);
+
 
             }
         });
@@ -81,18 +78,37 @@ public class HlavneOkno {
         frame.setMinimumSize(new Dimension(500, 700));
         frame.setContentPane(new HlavneOkno().panel1);
 
+        frame.setLocationRelativeTo(null); // vycentrovanie okna
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
 
-
 //        System.exit(0);
 
 
-
-
     }
+
+
+
+    public KnihaObject getKniha() {
+        return kniha;
+    }
+
+    public void setKniha(KnihaObject kniha) {
+        this.kniha = kniha;
+    }
+
+    public JTable getTable1() {
+        return table1;
+    }
+
+    public void setTable1(JTable table1) {
+        this.table1 = table1;
+    }
+
+
 
 
 }

@@ -3,7 +3,10 @@ package ulohy.bookcasegui.gui;
 
 import ulohy.bookcasegui.model.KnihaObject;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
+
+
 
 public class ZadacieOkno extends JDialog {
     private JPanel contentPane;
@@ -14,7 +17,12 @@ public class ZadacieOkno extends JDialog {
     private JTextField textField3;
     private JTextField textField4;
 
-    public ZadacieOkno() {
+    private final HlavneOkno hlavneOkno;
+
+
+    public ZadacieOkno(HlavneOkno hlavneOkno) {
+        this.hlavneOkno = hlavneOkno;
+
 
         setContentPane(contentPane);
         setModal(true);
@@ -79,6 +87,14 @@ public class ZadacieOkno extends JDialog {
             System.out.println(aktualnakniha.getCena());
 
 
+            JTable table = hlavneOkno.getTable1();
+
+            Object[] data = {aktualnakniha.getMeno(), aktualnakniha.getAutor(), aktualnakniha.getRokvydania(), aktualnakniha.getCena()};
+
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.addRow(data);
+
+
 
         }
 
@@ -91,12 +107,6 @@ public class ZadacieOkno extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        ZadacieOkno dialog = new ZadacieOkno();
-        dialog.pack();
-        dialog.setVisible(true);
-
-
 //        System.exit(0);
     }
-}
+
