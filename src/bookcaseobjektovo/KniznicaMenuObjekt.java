@@ -20,9 +20,6 @@ public class KniznicaMenuObjekt {
         ZoznamObjekt zoznamObjekt=new ZoznamObjekt();
         ArrayList<KnihaObject> kniznica= zoznamObjekt.naplnKniznicu();
 
-
-
-//        ArrayList<String> zoznamknih = new ArrayList<String>(); // Arraylist bez objektu
         String menuvolba;
         Scanner sc = new Scanner(System.in);
 
@@ -35,41 +32,17 @@ public class KniznicaMenuObjekt {
 
         switch (menuvolba) {
             case "1":
-                Scanner sc1 = new Scanner(System.in);
-                String vstup;
-                System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
 
-                while (true) {
-                    vstup = sc1.nextLine();
-                    if (vstup.toLowerCase().equals("quit")) {
-                        break;
-                    }
-                    if (!vstup.equals("")) {
-
-                        kniha.setMeno(vstup);
-                        System.out.println("Zadaj Autora");
-                        vstup = sc1.nextLine();
-                        kniha.setAutor(vstup);
-                        System.out.println("Zadaj Rok vydania");
-                        vstup = sc1.nextLine();
-                        kniha.setRokvydania(Integer.parseInt(vstup));
-                        System.out.println("Zadaj cenu");
-                        vstup = sc1.nextLine();
-                        kniha.setCena(Integer.parseInt(vstup));
-                        kniznica.add(kniha);
-                        System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
-
-                    }
-                }
+                zoznamObjekt.doplnKniznicu(kniznica);
                 vypisMenu();
-                                break;
+                 break;
 
             case "2":
 
-//                ZoznamObjekt.vypisKnihyObjekt(kniznica);
-                //
-//                System.out.println("a znova vypis priamo");
+                ZoznamObjekt.vypisKnihyObjekt(kniznica);
 
+/*
+                System.out.println("a znova vypis priamo");
                 System.out.println();
                 for (KnihaObject vystup:kniznica) {
                     System.out.println("Nazov knihy: " + vystup.getMeno());
@@ -78,6 +51,7 @@ public class KniznicaMenuObjekt {
                     System.out.println("Rok vydania: " + vystup.getCena());
                     System.out.println("------------------------------------------");
                 }
+*/
 
                 System.out.println("Zadaj svoju volbu:");
 
@@ -122,6 +96,7 @@ public class KniznicaMenuObjekt {
             case "0":
                 //todo neprerobene do Objektu
 //                Collections.sort(zoznamknih);
+                kniznica.stream().sorted();
 
                 System.out.println("Táto možnosť ešte nebola implementovaná - možno další relelase :)");
 //                System.out.println("Knihy boli zoradene podla abecedy");
@@ -159,7 +134,6 @@ public class KniznicaMenuObjekt {
         System.out.println("MENU>      (4)= Vypíš knihu podľa Mena knihy(q)= quit : ");
         System.out.println("MENU>      (6)= Vypíš počet knih,           (q)= quit : ");
         System.out.println("MENU>      (7)= Vymaž knihu podľa indexu    (q)= quit : ");
-
         System.out.println("MENU>      (8)= Zmaž všetky knihy,          (q)= quit : ");
         System.out.println("MENU>      (0)= Sortuj,....                 (q)= quit : ");
 

@@ -56,10 +56,6 @@ public static List<String> findUsingLoop(String search, List<String> list) {
 
 */
 
-//TODO  : Vytvorte metódu (findBookByName), Vytvorte metódu (findBooksByFulltextSearch), -
-
-//TODO prerobit s objektom KnihaObject
-
 
 public class KniznicaEvidenciaObjekt {
 

@@ -1,6 +1,7 @@
 package ulohy.bookcaseobjektovo.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ZoznamObjekt {
 
@@ -30,6 +31,42 @@ public class ZoznamObjekt {
         ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<>();
         zoznamknihobjekt.add(kniha1);
         zoznamknihobjekt.add(kniha2);
+
+        return zoznamknihobjekt;
+
+    }
+
+    public static ArrayList<KnihaObject> doplnKniznicu(ArrayList<KnihaObject>zoznamknihobjekt) {
+        KnihaObject kniha= new KnihaObject();
+//        ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<>();
+
+        Scanner sc1 = new Scanner(System.in);
+        String vstup;
+        System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
+
+        while (true) {
+            vstup = sc1.nextLine();
+            if (vstup.toLowerCase().equals("quit")) {
+                break;
+            }
+            if (!vstup.equals("")) {
+
+                kniha.setMeno(vstup);
+                System.out.println("Zadaj Autora");
+                vstup = sc1.nextLine();
+                kniha.setAutor(vstup);
+                System.out.println("Zadaj Rok vydania");
+                vstup = sc1.nextLine();
+                kniha.setRokvydania(Integer.parseInt(vstup));
+                System.out.println("Zadaj cenu");
+                vstup = sc1.nextLine();
+                kniha.setCena(Integer.parseInt(vstup));
+
+                zoznamknihobjekt.add(kniha);
+                System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
+
+            }
+        }
 
         return zoznamknihobjekt;
 
