@@ -80,33 +80,17 @@ public class KniznicaEvidenciaObjekt {
         }
 
     }
-    public static void vypisDynamickePole(ArrayList<String> dynpole) {
 
-        System.out.print("Zoznam knih : " + "{");
-        for (int i = 0; i < dynpole.size(); i++) {
-            System.out.print(dynpole.get(i) + ",");
-        }
-        System.out.print("}");
-        System.out.println();
+    public static int getCountOfAllBooks(ArrayList<KnihaObject> knihaObjectArrayList) { return knihaObjectArrayList.size(); }
 
-        // prechadzame vsetkymi prvkami dynamickeho pola knihy, SPOSOB c.2
-        for (String kniha : dynpole) {
-            System.out.println(kniha);
-        }
 
-    }
-
-    public static int getCountOfAllBooks(ArrayList<String> dynpole) {
-        return dynpole.size();
-    }
-
-    public static void removeAllBooks(ArrayList<String> dynpole) {
+    public static void removeAllBooks(ArrayList<KnihaObject> knihaObjectArrayList) {
 
         Scanner sc2 = new Scanner(System.in);
         sc2 = new Scanner(System.in);
         System.out.println("Vazne chces zmazat cely zoznam ? (Y/n)");
 
-        if (sc2.next().equals("Y")) {dynpole.removeAll(dynpole);
+        if (sc2.next().equals("Y")) {knihaObjectArrayList.removeAll(knihaObjectArrayList);
             System.out.println("Všetky knihy boli zmazané");}
 
     }
@@ -118,39 +102,42 @@ public class KniznicaEvidenciaObjekt {
 
     }
 
-    public static void getBookByIndex(ArrayList<String> dynpole) {
+    public static void getBookByIndex(ArrayList<KnihaObject> knihaObjectArrayList) {
 
         Scanner sc2 = new Scanner(System.in);
         sc2 = new Scanner(System.in);
-        System.out.println("Zadaj cislo indexu knihy, ktory chces vypísať - v zozname je pocet knih :" + dynpole.size());
+        System.out.println("Zadaj cislo indexu knihy, ktory chces vypísať - v zozname je pocet knih :" + knihaObjectArrayList.size());
 
         int index = 0;
         try {
             index = sc2.nextInt();
-            if (index >= dynpole.size() + 1) System.out.println(" v kniznici nemas tolko knih");
+            if (index >= knihaObjectArrayList.size() + 1) System.out.println(" v kniznici nemas tolko knih");
             else
-                System.out.println("V knižnici máš pod číslom  " + (index) + "  knihu s nazvom :" + dynpole.get(index - 1));
+                System.out.println("V knižnici máš pod číslom  " + (index) + " knihu:");
+            System.out.println(" Meno knihy:            " + knihaObjectArrayList.get(index - 1).getMeno());
+            System.out.println(" od autora :            " + knihaObjectArrayList.get(index - 1).getAutor());
+
         } catch (Exception e) {
-            System.out.println("chyba v zadani indexu");
+            System.out.println("Chyba v zadani indexu");
             vypisMenu();
         }
     }
 
-    public static void removeBookByIndex(ArrayList<String> dynpole)
+    public static void removeBookByIndex(ArrayList<KnihaObject> knihaObjectArrayList)
     {
         Scanner sc2 = new Scanner(System.in);
         sc2 = new Scanner(System.in);
-        System.out.println("Zadaj cislo indexu knihy, ktory chces VYMAZAT - v zozname je pocet knih :" + dynpole.size());
+        System.out.println("Zadaj cislo indexu knihy, ktory chces VYMAZAT - v zozname je pocet knih :" + knihaObjectArrayList.size());
 
         int index = 0;
         try {
             index = sc2.nextInt();
-            if (index >= dynpole.size() + 1) System.out.println(" v kniznici nemas tolko knih");
+            if (index >= knihaObjectArrayList.size() + 1) System.out.println(" v kniznici nemas tolko knih");
             else
-                System.out.println("Z kniznice bola vymazaza  pod cislom " + (index) + "  kniha s nazvom :" + dynpole.get(index - 1));
-            dynpole.remove(index);
+                System.out.println("Z kniznice bola vymazaza  pod cislom " + (index) + "  kniha s nazvom :" + knihaObjectArrayList.get(index - 1));
+            knihaObjectArrayList.remove(index);
         } catch (Exception e) {
-            System.out.println("chyba v zadani indexu knihy");
+            System.out.println("Chyba v zadani indexu knihy");
             vypisMenu();
         }
 

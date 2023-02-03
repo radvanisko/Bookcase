@@ -35,7 +35,7 @@ public class ZoznamObjekt {
 
     }
 
-    public void vypisKnihyObjekt(ArrayList<KnihaObject>kniznica) {
+    public static void vypisKnihyObjekt(ArrayList<KnihaObject>kniznica) {
 
         System.out.println();
         for (KnihaObject vystup:kniznica) {

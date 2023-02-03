@@ -22,7 +22,7 @@ public class KniznicaMenuObjekt {
 
 
 
-        ArrayList<String> zoznamknih = new ArrayList<String>(); // Arraylist bez objektu
+//        ArrayList<String> zoznamknih = new ArrayList<String>(); // Arraylist bez objektu
         String menuvolba;
         Scanner sc = new Scanner(System.in);
 
@@ -65,12 +65,11 @@ public class KniznicaMenuObjekt {
                                 break;
 
             case "2":
-//                vypisKnihyObjekt(kniznica);
 
-//
+//                ZoznamObjekt.vypisKnihyObjekt(kniznica);
+                //
+//                System.out.println("a znova vypis priamo");
 
-
-                System.out.println("a znova vypis priamo");
                 System.out.println();
                 for (KnihaObject vystup:kniznica) {
                     System.out.println("Nazov knihy: " + vystup.getMeno());
@@ -80,15 +79,12 @@ public class KniznicaMenuObjekt {
                     System.out.println("------------------------------------------");
                 }
 
-
-
                 System.out.println("Zadaj svoju volbu:");
 
                 break;
 
             case "3":
-                getBookByIndex(zoznamknih);
-                System.out.println("Zadaj svoju volbu:");
+                KniznicaEvidenciaObjekt.getBookByIndex(kniznica);
                 break;
 
             case "4":
@@ -103,30 +99,34 @@ public class KniznicaMenuObjekt {
                     System.out.println(najdenaKniha.getRokvydania());
 
                 }
-
-
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
             case "6":
-                System.out.println("Počet knih v kniznici je : " + getCountOfAllBooks(zoznamknih));
+
+                System.out.println("Počet knih v kniznici je : " + kniznica.size());
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
             case "7":
-                removeBookByIndex(zoznamknih);
-                System.out.println("Zadaj svoju volbu:");
+                KniznicaEvidenciaObjekt.removeBookByIndex(kniznica);
+               System.out.println("Zadaj svoju volbu:");
+
                 break;
 
             case "8":
-                removeAllBooks(zoznamknih);
+                KniznicaEvidenciaObjekt.removeAllBooks(kniznica);
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
             case "0":
-                Collections.sort(zoznamknih);
-                System.out.println("Knihy boli zoradene podla abecedy");
-                vypisDynamickePole(zoznamknih);
+                //todo neprerobene do Objektu
+//                Collections.sort(zoznamknih);
+
+                System.out.println("Táto možnosť ešte nebola implementovaná - možno další relelase :)");
+//                System.out.println("Knihy boli zoradene podla abecedy");
+
+                ZoznamObjekt.vypisKnihyObjekt(kniznica);
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
@@ -134,7 +134,7 @@ public class KniznicaMenuObjekt {
                 vypisMenu();
                 break;
             case "q":
-                System.out.println("Koniec programu");
+                System.out.println("-----------Koniec programu------------");
                 sc.close();
                 return;
 
