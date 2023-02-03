@@ -63,24 +63,7 @@ public static List<String> findUsingLoop(String search, List<String> list) {
 
 public class KniznicaEvidenciaObjekt {
 
-    public static void vypisKnihyObjekt(ArrayList<KnihaObject>kniznica) {
 
-        System.out.println();
-        for (KnihaObject vystup:kniznica) {
-            System.out.println("Nazov knihy: " + vystup.getMeno());
-            System.out.println("Meno autora: " + vystup.getAutor());
-            System.out.println("Rok vydania: " + vystup.getRokvydania());
-            System.out.println("Rok vydania: " + vystup.getCena());
-            System.out.println("------------------------------------------");
-        }
-
-        /*
-        // prechadzame vsetkymi prvkami dynamickeho pola knihy, SPOSOB c.2
-        for (KnihaObject kniha : zoznamknih) {
-            System.out.println(kniha);
-        }
-*/
-    }
     public static void vypisKnihuObjektDetail(ArrayList<String>Knihaobjekt) {
 
         /*System.out.print("Zoznam knih : " + "{");
@@ -174,124 +157,6 @@ public class KniznicaEvidenciaObjekt {
 }
 }
 
-//  Presunute do KniznicaMenu  -  konzolove menu bŕŕŕŕŕ.....
-
-    /*public static void vypisMenu()  {
-        System.out.println();
-        System.out.println("---------------------------------------------------");
-        System.out.println("MENU>      (m)= MENU,....                 (q)= quit : ");
-        System.out.println("---------------------------------------------------");
-        System.out.println("MENU>       1)= Zadaj novu knihu ,          (q)= quit : ");
-        System.out.println("MENU>      (2)= Vypíš zoznam knih,          (q)= quit : ");
-        System.out.println("MENU>      (3)= Vypíš knihu podľa indexu    (q)= quit : ");
-        System.out.println("MENU>      (6)= Vypíš počet knih,           (q)= quit : ");
-        System.out.println("MENU>      (7)= Vymaž knihu podľa indexu    (q)= quit : ");
-
-        System.out.println("MENU>      (8)= Zmaž všetky knihy,          (q)= quit : ");
-        System.out.println("MENU>      (0)= Sortuj,....                 (q)= quit : ");
-
-
-        System.out.println("---------------------------------------------------");
-        System.out.println("Zadaj svoju volbu:");
-
-    }*/
-
-
-/*
-
-        sc = new Scanner(System.in);
-        vypisMenu();
-
-        while (true) {
-
-                menuvolba = sc.next();
-
-                switch (menuvolba)
-                {
-                    case "1":
-                        Scanner sc1 = new Scanner(System.in);
-                        String nazovknihy;
-                        System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
-
-                        while (true)
-                        {
-                            nazovknihy=sc1.nextLine();
-                            if (nazovknihy.toLowerCase().equals("quit")) {break;}
-                            if (!nazovknihy.equals("")) { zoznamknih.add(nazovknihy);}
-                        }
-                        vypisMenu();
-                        break;
-
-                    case "2": vypisDynamickePole(zoznamknih); System.out.println("Zadaj svoju volbu:");
-
-                        break;
-
-                    case "3": getBookByIndex(zoznamknih);
-                        System.out.println("Zadaj svoju volbu:");
-                        break;
-
-                    case "6":
-                        System.out.println("Počet knih v kniznici je : " + getCountOfAllBooks(zoznamknih));
-                        System.out.println("Zadaj svoju volbu:");
-                        break;
-
-                    case "7":
-                        removeBookByIndex(zoznamknih);
-                        System.out.println("Zadaj svoju volbu:");
-                        break;
-
-                    case "8": removeAllBooks(zoznamknih);
-                        System.out.println("Zadaj svoju volbu:");
-                        break;
-
-                    case "0": Collections.sort(zoznamknih);
-                        System.out.println("Knihy boli zoradene podla abecedy");vypisDynamickePole(zoznamknih);
-                        System.out.println("Zadaj svoju volbu:");
-                        break;
-
-                    case "m":vypisMenu();
-                        break;
-                    case "q":
-                        System.out.println("Koniec programu") ;sc.close();return;
-
-                    default:
-                        for (int i = 0; i < 50; ++i) System.out.println();
-                        vypisMenu();
-
-                }
-*/
-
-
-    /*            if(menuvolba.equals("1")) {
-
-                    Scanner sc1 = new Scanner(System.in);
-                    String nazovknihy;
-                    System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
-
-                    while (true)
-                    {
-                        nazovknihy=sc1.nextLine();
-                        if (nazovknihy.equals("quit")) {break;}
-                        if (!nazovknihy.equals("")) { zoznamknih.add(nazovknihy);}
-                    }
-                vypisMenu();
-                }
-            if(menuvolba.equals("2")) {vypisDynamickePole(zoznamknih);  }
-            if(menuvolba.equals("3"))   {getBookByIndex(zoznamknih);                }
-
-
-            if(menuvolba.equals("8")) {removeAllBooks(zoznamknih);  }
-            if(menuvolba.equals("6")) { System.out.println("Počet knih v kniznici je : " + getCountOfAllBooks(zoznamknih));  }
-            if(menuvolba.equals("0")) {Collections.sort(zoznamknih);
-                System.out.println("Knihy boli zoradene podla abecedy");vypisDynamickePole(zoznamknih);}
-            if(menuvolba.equals("m"))   {vypisMenu(); }
-            if(menuvolba.equals("q")) { System.out.println("Koniec programu") ;sc.close();break;}
-
-
-
-
-            }
-*/
 
 
 

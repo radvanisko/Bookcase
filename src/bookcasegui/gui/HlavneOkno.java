@@ -8,6 +8,9 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class HlavneOkno {
@@ -20,6 +23,7 @@ public class HlavneOkno {
     private JPanel panel2;
     private JPanel panel3;
      public KnihaObject kniha;
+
 
 
     public HlavneOkno() {
@@ -66,6 +70,47 @@ public class HlavneOkno {
             @Override
             public void actionPerformed(ActionEvent e) {
              table1.updateUI();
+            }
+        });
+        testButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                try {
+                    File myObj = new File("knihy.txt");
+                    if (myObj.createNewFile()) {
+                        System.out.println("Novy subor vytvoreny: " + myObj.getName());
+                    } else {
+                        System.out.println("Subor uz existuje.");
+                    }
+                } catch (IOException ioException) {
+                    System.out.println("EEEEEeee chyba.");
+                    ioException.printStackTrace();
+                }
+                    try {
+                        FileWriter myWriter = new FileWriter("knihy.txt");
+
+
+                        myWriter.write("Este keby som vedel ako sem zapisat cele pole typu KnihaObjekt");
+
+                        // tu by som mal prebehnut celu JTable a precitat a zapisať
+
+
+
+
+
+                        myWriter.close();
+                        System.out.println("Successfully wrote to the file.");
+                    } catch (IOException ioException) {
+                        System.out.println("An error occurred.");
+                        ioException.printStackTrace();
+                    }
+
+
+
+
+
             }
         });
     }

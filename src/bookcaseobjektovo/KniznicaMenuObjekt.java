@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Scanner;
 import static ulohy.bookcase.KniznicaEvidencia.*;
 
-import static ulohy.bookcaseobjektovo.KniznicaEvidenciaObjekt.vypisKnihyObjekt;
+//import static ulohy.bookcaseobjektovo.KniznicaEvidenciaObjekt.vypisKnihyObjekt;
 
 
 public class KniznicaMenuObjekt {
@@ -65,8 +65,9 @@ public class KniznicaMenuObjekt {
                                 break;
 
             case "2":
-//              vypisDynamickePole(zoznamknih);
-                vypisKnihyObjekt(kniznica);
+//                vypisKnihyObjekt(kniznica);
+
+//
 
 
                 System.out.println("a znova vypis priamo");
@@ -87,6 +88,23 @@ public class KniznicaMenuObjekt {
 
             case "3":
                 getBookByIndex(zoznamknih);
+                System.out.println("Zadaj svoju volbu:");
+                break;
+
+            case "4":
+                System.out.println("Vyhladavame podľa mena knihy, Zadaj meno knihy.");
+                Scanner scn2 = new Scanner(System.in);
+                String hladanyNazov = scn2.nextLine(); // ocakavany vstup od pouzivatela vo forme textu
+               ArrayList<KnihaObject> najdeneKnihy = ZoznamObjekt.vyhladaneKnihy(kniznica,hladanyNazov);
+                for (KnihaObject najdenaKniha: najdeneKnihy) {
+                    System.out.println(najdenaKniha.getMeno());
+                    System.out.println(najdenaKniha.getAutor());
+                    System.out.println(najdenaKniha.getCena());
+                    System.out.println(najdenaKniha.getRokvydania());
+
+                }
+
+
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
@@ -138,6 +156,7 @@ public class KniznicaMenuObjekt {
         System.out.println("MENU>      (1)= Zadaj novu knihu ,          (q)= quit : ");
         System.out.println("MENU>      (2)= Vypíš zoznam knih,          (q)= quit : ");
         System.out.println("MENU>      (3)= Vypíš knihu podľa indexu    (q)= quit : ");
+        System.out.println("MENU>      (4)= Vypíš knihu podľa Mena knihy(q)= quit : ");
         System.out.println("MENU>      (6)= Vypíš počet knih,           (q)= quit : ");
         System.out.println("MENU>      (7)= Vymaž knihu podľa indexu    (q)= quit : ");
 

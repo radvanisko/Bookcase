@@ -1,6 +1,8 @@
 package ulohy.bookcaseobjektovo.model;
 
 
+import java.util.ArrayList;
+
 // priprava objektu KnihaObjekt
 public class KnihaObject {
     private String meno;
@@ -43,4 +45,7 @@ public class KnihaObject {
 
     public KnihaObject() {
     }
+
+
 }
+
