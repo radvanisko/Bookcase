@@ -5,6 +5,8 @@ import ulohy.bookcaseobjektovo.model.*;
 //import ulohy.bookcaseobjektovo.model.ZoznamObjekt;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 //import static ulohy.bookcaseobjektovo.KniznicaEvidenciaObjekt.vypisKnihyObjekt;
@@ -95,11 +97,10 @@ public class KniznicaMenuObjekt {
             case "0":
                 //todo neprerobene do Objektu
 //                Collections.sort(zoznamknih);
-                kniznica.stream().sorted();
+                Collections.sort(kniznica, Comparator.comparing(KnihaObject::getMeno));
 
-                System.out.println("Táto možnosť ešte nebola implementovaná - možno další relelase :)");
-//                System.out.println("Knihy boli zoradene podla abecedy");
-
+//                System.out.println("Táto možnosť ešte nebola implementovaná - možno další relelase :)");
+                System.out.println("Knihy boli zoradene podla abecedy");
                 KniznicaObjekt.vypisKnihyObjekt(kniznica);
                 System.out.println("Zadaj svoju volbu:");
                 break;

@@ -84,7 +84,7 @@ public class KniznicaEvidenciaObjekt {
 
         Scanner sc2 = new Scanner(System.in);
         sc2 = new Scanner(System.in);
-        System.out.println("Vazne chces zmazat cely zoznam ? (Y/n)");
+        System.out.println("Vážne chceš zmazať celý zoznam ? (Y/n)");
 
         if (sc2.next().equals("Y")) {knihaObjectArrayList.removeAll(knihaObjectArrayList);
             System.out.println("Všetky knihy boli zmazané");}

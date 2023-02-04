@@ -24,8 +24,8 @@ public class KniznicaObjekt {
 
         KnihaObject kniha2= new KnihaObject();
         kniha2.setMeno("Testovacia 2");
-        kniha2.setAutor("Autor1");
-        kniha2.setRokvydania(2000);
+        kniha2.setAutor("Autor2");
+        kniha2.setRokvydania(1900);
         kniha2.setCena(50);
 
         ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<>();
