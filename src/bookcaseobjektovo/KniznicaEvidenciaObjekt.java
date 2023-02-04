@@ -91,27 +91,22 @@ public class KniznicaEvidenciaObjekt {
 
     }
 
-    public static String getFirstBook(ArrayList<String> dynpole) {
+      public static void getBookByIndex(ArrayList<KnihaObject> knihaObjectArrayList) {
 
-        String prvakniha;
-        return prvakniha = dynpole.get(dynpole.size());
-
-    }
-
-    public static void getBookByIndex(ArrayList<KnihaObject> knihaObjectArrayList) {
 
         Scanner sc2 = new Scanner(System.in);
-        sc2 = new Scanner(System.in);
         System.out.println("Zadaj cislo indexu knihy, ktory chces vypísať - v zozname je pocet knih :" + knihaObjectArrayList.size());
 
         int index = 0;
         try {
             index = sc2.nextInt();
-            if (index >= knihaObjectArrayList.size() + 1) System.out.println(" v kniznici nemas tolko knih");
+            index=index-1;
+
+            if (index > knihaObjectArrayList.size() ) System.out.println(" v kniznici nemas tolko knih");
             else
-                System.out.println("V knižnici máš pod číslom  " + (index) + " knihu:");
-            System.out.println(" Meno knihy:            " + knihaObjectArrayList.get(index - 1).getMeno());
-            System.out.println(" od autora :            " + knihaObjectArrayList.get(index - 1).getAutor());
+                System.out.println("V knižnici máš pod číslom  " + (index+1) + " knihu:");
+            System.out.println(" Meno knihy:            " + knihaObjectArrayList.get(index).getMeno());
+            System.out.println(" od autora :            " + knihaObjectArrayList.get(index).getAutor());
 
         } catch (Exception e) {
             System.out.println("Chyba v zadani indexu");
@@ -121,19 +116,20 @@ public class KniznicaEvidenciaObjekt {
 
     public static void removeBookByIndex(ArrayList<KnihaObject> knihaObjectArrayList)
     {
+
         Scanner sc2 = new Scanner(System.in);
-        sc2 = new Scanner(System.in);
         System.out.println("Zadaj cislo indexu knihy, ktory chces VYMAZAT - v zozname je pocet knih :" + knihaObjectArrayList.size());
 
         int index = 0;
         try {
             index = sc2.nextInt();
-            if (index >= knihaObjectArrayList.size() + 1) System.out.println(" v kniznici nemas tolko knih");
+            index=index-1;
+            if (index > knihaObjectArrayList.size() ) System.out.println(" v kniznici nemas tolko knih");
             else
-                System.out.println("Z kniznice bola vymazaza  pod cislom " + (index) + "  kniha s nazvom :" + knihaObjectArrayList.get(index - 1));
+                System.out.println("Z knižnice bola vymazaná kniha pod cislom " + (index+1) + "  kniha s nazvom :" + knihaObjectArrayList.get(index).getMeno());
             knihaObjectArrayList.remove(index);
         } catch (Exception e) {
-            System.out.println("Chyba v zadani indexu knihy");
+            System.out.println("Chyba v zadaní indexu knihy");
             vypisMenu();
         }
 

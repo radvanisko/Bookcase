@@ -5,9 +5,7 @@ import ulohy.bookcaseobjektovo.model.*;
 //import ulohy.bookcaseobjektovo.model.ZoznamObjekt;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
-import static ulohy.bookcase.KniznicaEvidencia.*;
 
 //import static ulohy.bookcaseobjektovo.KniznicaEvidenciaObjekt.vypisKnihyObjekt;
 
@@ -17,14 +15,15 @@ public class KniznicaMenuObjekt {
     public static void main(String[] args) {
 
         KnihaObject kniha=new KnihaObject();
-        ZoznamObjekt zoznamObjekt=new ZoznamObjekt();
-        ArrayList<KnihaObject> kniznica= zoznamObjekt.naplnKniznicu();
+        KniznicaObjekt kniznicaObjekt =new KniznicaObjekt();
+        ArrayList<KnihaObject> kniznica= kniznicaObjekt.naplnKniznicu();
 
         String menuvolba;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Vitaj v knižnici" );
         vypisMenu();
+        System.out.println("Zadaj svoju volbu:");
 
       while(true)
       {
@@ -33,15 +32,15 @@ public class KniznicaMenuObjekt {
         switch (menuvolba) {
             case "1":
 
-                zoznamObjekt.doplnKniznicu(kniznica);
+                kniznicaObjekt.doplnKniznicu(kniznica);
                 vypisMenu();
+                System.out.println("Zadaj svoju volbu:");
                  break;
 
             case "2":
 
-                ZoznamObjekt.vypisKnihyObjekt(kniznica);
+//                ZoznamObjekt.vypisKnihyObjekt(kniznica);
 
-/*
                 System.out.println("a znova vypis priamo");
                 System.out.println();
                 for (KnihaObject vystup:kniznica) {
@@ -51,7 +50,6 @@ public class KniznicaMenuObjekt {
                     System.out.println("Rok vydania: " + vystup.getCena());
                     System.out.println("------------------------------------------");
                 }
-*/
 
                 System.out.println("Zadaj svoju volbu:");
 
@@ -59,13 +57,14 @@ public class KniznicaMenuObjekt {
 
             case "3":
                 KniznicaEvidenciaObjekt.getBookByIndex(kniznica);
+                System.out.println("Zadaj svoju volbu:");
                 break;
 
             case "4":
                 System.out.println("Vyhladavame podľa mena knihy, Zadaj meno knihy.");
                 Scanner scn2 = new Scanner(System.in);
                 String hladanyNazov = scn2.nextLine(); // ocakavany vstup od pouzivatela vo forme textu
-               ArrayList<KnihaObject> najdeneKnihy = ZoznamObjekt.vyhladaneKnihy(kniznica,hladanyNazov);
+               ArrayList<KnihaObject> najdeneKnihy = KniznicaObjekt.vyhladaneKnihy(kniznica,hladanyNazov);
                 for (KnihaObject najdenaKniha: najdeneKnihy) {
                     System.out.println(najdenaKniha.getMeno());
                     System.out.println(najdenaKniha.getAutor());
@@ -101,12 +100,13 @@ public class KniznicaMenuObjekt {
                 System.out.println("Táto možnosť ešte nebola implementovaná - možno další relelase :)");
 //                System.out.println("Knihy boli zoradene podla abecedy");
 
-                ZoznamObjekt.vypisKnihyObjekt(kniznica);
+                KniznicaObjekt.vypisKnihyObjekt(kniznica);
                 System.out.println("Zadaj svoju volbu:");
                 break;
 
             case "m":
                 vypisMenu();
+                System.out.println("Zadaj svoju volbu:");
                 break;
             case "q":
                 System.out.println("-----------Koniec programu------------");
@@ -116,6 +116,7 @@ public class KniznicaMenuObjekt {
             default:
                 for (int i = 0; i < 50; ++i) System.out.println();
                 vypisMenu();
+                System.out.println("Zadaj svoju volbu:");
 
         }
 
@@ -139,7 +140,7 @@ public class KniznicaMenuObjekt {
 
 
         System.out.println("---------------------------------------------------");
-        System.out.println("Zadaj svoju volbu:");
+//        System.out.println("Zadaj svoju volbu:");
 
     }
 

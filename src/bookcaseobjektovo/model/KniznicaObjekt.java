@@ -3,7 +3,7 @@ package ulohy.bookcaseobjektovo.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ZoznamObjekt {
+public class KniznicaObjekt {
 
     public ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<KnihaObject>();
 
@@ -37,7 +37,7 @@ public class ZoznamObjekt {
     }
 
     public static ArrayList<KnihaObject> doplnKniznicu(ArrayList<KnihaObject>zoznamknihobjekt) {
-        KnihaObject kniha= new KnihaObject();
+//        KnihaObject kniha= new KnihaObject();
 //        ArrayList<KnihaObject> zoznamknihobjekt= new ArrayList<>();
 
         Scanner sc1 = new Scanner(System.in);
@@ -45,6 +45,7 @@ public class ZoznamObjekt {
         System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
 
         while (true) {
+           KnihaObject kniha= new KnihaObject();
             vstup = sc1.nextLine();
             if (vstup.toLowerCase().equals("quit")) {
                 break;
@@ -57,15 +58,25 @@ public class ZoznamObjekt {
                 kniha.setAutor(vstup);
                 System.out.println("Zadaj Rok vydania");
                 vstup = sc1.nextLine();
-                kniha.setRokvydania(Integer.parseInt(vstup));
-                System.out.println("Zadaj cenu");
-                vstup = sc1.nextLine();
-                kniha.setCena(Integer.parseInt(vstup));
 
-                zoznamknihobjekt.add(kniha);
+                try {
+                    kniha.setRokvydania(Integer.parseInt(vstup));
+                    System.out.println("Zadaj cenu");
+                } catch (NumberFormatException e) {
+
+                }
+
+                try {
+                    vstup = sc1.nextLine();
+                    kniha.setCena(Integer.parseInt(vstup));
+                } catch (NumberFormatException e) {
+
+                }
+
                 System.out.println("Zadaj meno knihy./ zadavanie ukončíš zadanim slova <quit>");
 
             }
+            zoznamknihobjekt.add(kniha);
         }
 
         return zoznamknihobjekt;
@@ -103,7 +114,7 @@ public class ZoznamObjekt {
         return vyhladaneKnihy;
     }
 
-    public ZoznamObjekt() {
+    public KniznicaObjekt() {
         this.zoznamknihobjekt = zoznamknihobjekt;
     }
 }
